@@ -25,8 +25,20 @@ const handlers = {
         const confirmation = "You are creating a variable named" + name + " initialized to " + value + ".";
         this.response.speak(confirmation).listen(HELP_REPROMPT);
         this.emit(':responseReady');
-
-        // http request
+        
+        var params = {
+            name: name,
+            value: value
+        }
+        var url = ""; // endpoint 
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.responseText);
+            }
+        }
+        xhr.send(params);
     },
     'DeclareForLoop': function () {
         const beg = this.event.request.intent.slots.beg.value;
@@ -34,6 +46,20 @@ const handlers = {
         const confirmation = "You are creating a for loop that iterates from " + beg + " to " + end + ".";
         this.response.speak(confirmation).listen(HELP_REPROMPT);
         this.emit(':responseReady');
+
+        var params = {
+            beg: beg,
+            end: end
+        }
+        var url = ""; // endpoint 
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.responseText);
+            }
+        }
+        xhr.send(params);
     },
     'AMAZON.HelpIntent': function () {
         const speechOutput = HELP_MESSAGE;
