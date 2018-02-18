@@ -4,7 +4,10 @@
   "description": "",
   "author": "yonniluu <yonni.luu@gmail.com>",
   "main": "functions/__main__.js",
-  "dependencies": {},
+  "dependencies": {
+    "firebase-admin": "^5.9.0",
+    "xhr-request": "^1.1.0"
+  },
   "private": true,
   "stdlib": {
     "build": "faaslang",
