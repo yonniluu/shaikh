@@ -6,7 +6,7 @@ const admin = require('firebase-admin');
 */
 module.exports = (code, context, callback) => {	
 	// var dbURL = 'https://treehacks2018-82ece.firebaseio.com'
-	var serviceAccount = require('../treehacks2018-2d14cff28ab6.json')
+	var serviceAccount = require('../treehacks2018-f2b7b0338e90.json')
 	admin.initializeApp({
 	    credential: admin.credential.cert(serviceAccount)
 	});

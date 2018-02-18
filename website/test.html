@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<p id="first">
+Hello World!
+
+</p>
+
+Untitled-1<script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-firestore.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA5zecEUcUV8lq2K85errmodjB-HpoOyag",
+    authDomain: "treehacks2018-82ece.firebaseapp.com",
+    databaseURL: "https://treehacks2018-82ece.firebaseio.com",
+    projectId: "treehacks2018-82ece",
+    storageBucket: "treehacks2018-82ece.appspot.com",
+    messagingSenderId: "1065494885295"
+  };
+  firebase.initializeApp(config);
+  var db = firebase.firestore();
+
+  db.collection("codeOutput").onSnapshot(function(querySnapshot){
+  	querySnapshot.docChanges.forEach(function(change) {
+  		if(change.type === "modified") {
+  			var newCode = change.doc.data().code;
+  			// TODO: change this to add space between two code commands
+  			document.getElementById("first").innerHTML+=newCode;
+  		}
+
+  	});
+  });
+</script>
+
+</body>
+</html>
