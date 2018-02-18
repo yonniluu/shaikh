@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shaikh</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="typed.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="content.js"></script>	
+</head>
+<body>
+	<div id="page1">
+		<h1 id="title"><font color="#00ff00">>> </font>SHAIKH_</h1>
+		<h2 id="description">A productivity tool for hackers, by hackers. Powered by voice AI technology. </h2>
+		<button class="button" id="button">Learn More</button>
+	</div> 
+
+	<div id="page2">
+		<button class="backButton" id="backButton">Back</button>
+		<h3 id="smallHeading"><font color="#00ff00">>> </font>SHAIKH_</h3>
+
+		<h5 id="product"><font color="#00ff00">>> </font>OUR PRODUCT_</h5>
+		<h4 id="details1">Tired of typing the same boiler-plate code over and over again? Don't want to get up but still want to code? Now all of your problems are solved - just download Shaikh! By using groundbreaking AI speech technology, simply talk to your Amazon Echo in order to develop your next project!</h4>
+
+		<h5 id="proces"><br><br><br><br><br><br><font color="#00ff00">>> </font>OUR PROCESS_</h5>
+		<h4 id="details2"><br><br><br><br><br><br><br><br>We used the Amazon Alexa to parse speech input. We sent this data to our Firebase server and loaded the extension onto VS Code!</h4>
+
+		<!-- <h5 id="story"><br><br><br><br><br><br><br><br><br><br><font color="#00ff00">>> </font>OUR STORY_</h5>
+		<h4 id="details3"><br><br><br><br><br><br><br><br><br><br><br><br><br><br>We were inspired by Saqib Shaikh, a visually impaired software engineer at Microsoft. We wondered: how could someone who was blind learn and know how to code? So we decided to build <font color="#00ff00">Shaikh</font>. Still mind blown? Ask one of our developers for a demo! </h4> -->
+	</div>
+
+	<canvas id="myCanvas"></canvas>
+
+	<script>
+		animate();
+
+		fadeIn(myCanvas, 0.08);
+		setTimeout(function() {
+			fadeIn(title, 0.05);
+			setTimeout(function() {
+				fadeIn(description, 0.05);
+				setTimeout(function() {
+					fadeIn(button, 0.05);
+				}, 300);
+			}, 400);
+		}, 400);
+		
+		document.getElementById("button").onclick = function() {
+		    fadeOut(title, 0.15);
+		    fadeOut(description, 0.15);
+		    fadeOut(button, 0.15);
+
+		    setTimeout(function() {
+		    	fadeIn(smallHeading, 0.05);
+		    	fadeIn(backButton, 0.05);
+		    	setTimeout(function() {
+		    		fadeIn(product, 0.05);
+		    		fadeIn(details1, 0.05);
+		    		setTimeout(function() {
+		    			fadeIn(proces, 0.05);
+			    		fadeIn(details2, 0.05);
+			    		setTimeout(function() {
+			    			fadeIn(story, 0.05);
+				    		fadeIn(details3, 0.05);
+				    	}, 400);
+			    	}, 400);
+		    	}, 400);
+		    }, 700);
+		}
+
+		document.getElementById("backButton").onclick = function() {
+		    fadeOut(smallHeading, 0.15);
+		    fadeOut(backButton, 0.15);
+		    fadeOut(product, 0.15);
+		    fadeOut(details1, 0.15);
+		    fadeOut(proces, 0.15);
+		    fadeOut(details2, 0.15);
+		    fadeOut(story, 0.15);
+		    fadeOut(details3, 0.15);
+
+		    setTimeout(function() {
+		    	fadeIn(title, 0.05);
+		    	setTimeout(function() {
+		    		fadeIn(description, 0.05);
+		    		setTimeout(function() {
+		    			fadeIn(button, 0.05);
+			    	}, 400);
+		    	}, 400);
+		    }, 700);
+		}
+	</script>
+	 <!-- <script>
+	  var typed = new Typed('.top', {
+	    stringsElement: '#typed-strings',
+	    typeSpeed: 40
+	  });
+	</script>  -->
+	
+</body>
+</html>
