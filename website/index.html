@@ -7,10 +7,11 @@
 	<script src="typed.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="content.js"></script>	
+	<script src="typed.js"></script>	
 </head>
 <body>
 	<div id="page1">
-		<h1 id="title"><font color="#00ff00">>> </font>SHAIKH_</h1>
+		<h1 id="title"><font color="#00ff00">>> </font><span id = "typed" style='font-family: 'Montserrat"'></span></h1><
 		<h2 id="description">A productivity tool for hackers, by hackers. Powered by voice AI technology. </h2>
 		<button class="button" id="button">Learn More</button>
 	</div> 
@@ -25,7 +26,7 @@
 		<h5 id="proces"><br><br><br><br><br><br><font color="#00ff00">>> </font>OUR PROCESS_</h5>
 		<h4 id="details2"><br><br><br><br><br><br><br><br>We used the Amazon Alexa to parse speech input. We sent this data to our Firebase server and loaded the extension onto VS Code!</h4>
 
-		<!-- <h5 id="story"><br><br><br><br><br><br><br><br><br><br><font color="#00ff00">>> </font>OUR STORY_</h5>
+		<!--<h5 id="story"><br><br><br><br><br><br><br><br><br><br><font color="#00ff00">>> </font>OUR STORY_</h5>
 		<h4 id="details3"><br><br><br><br><br><br><br><br><br><br><br><br><br><br>We were inspired by Saqib Shaikh, a visually impaired software engineer at Microsoft. We wondered: how could someone who was blind learn and know how to code? So we decided to build <font color="#00ff00">Shaikh</font>. Still mind blown? Ask one of our developers for a demo! </h4> -->
 	</div>
 
@@ -89,12 +90,40 @@
 		    }, 700);
 		}
 	</script>
-	 <!-- <script>
-	  var typed = new Typed('.top', {
-	    stringsElement: '#typed-strings',
-	    typeSpeed: 40
-	  });
-	</script>  -->
+	<style>
+	.typed-cursor{
+        opacity: 1;
+        font-weight: 100;
+        -webkit-animation: blink 1s infinite;
+        -moz-animation: blink 1 infinite;
+        -ms-animation: blink 1s infinite;
+        -o-animation: blink 1s infinite;
+        animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-webkit-keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-moz-keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+	</style>
+<script>
+	var typed = new Typed("#typed", {
+	  strings: ['SHAIKH_'],
+	  typeSpeed: 200
+	});
+</script>
 	
 </body>
 </html>
