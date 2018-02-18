@@ -26,10 +26,7 @@ const handlers = {
         this.response.speak(confirmation).listen(HELP_REPROMPT);
         this.emit(':responseReady');
         
-        var params = {
-            name: name,
-            value: value
-        }
+        var send = "var " + name + " = " + value + ";\n";
         var url = ""; // endpoint 
         var xhr = new XMLHttpRequest();
         xhr.open("POST", url, true);
@@ -38,7 +35,7 @@ const handlers = {
                 console.log(xhr.responseText);
             }
         }
-        xhr.send(params);
+        xhr.send(send);
     },
     'DeclareForLoop': function () {
         const beg = this.event.request.intent.slots.beg.value;
@@ -47,11 +44,8 @@ const handlers = {
         this.response.speak(confirmation).listen(HELP_REPROMPT);
         this.emit(':responseReady');
 
-        var params = {
-            beg: beg,
-            end: end
-        }
-        var url = ""; // endpoint 
+        var send = "for (i in range(" + beg + ", " + end + "):{\n}";
+        var url = ""; // endpoint
         var xhr = new XMLHttpRequest();
         xhr.open("POST", url, true);
         xhr.onreadystatechange = function() {
@@ -59,7 +53,7 @@ const handlers = {
                 console.log(xhr.responseText);
             }
         }
-        xhr.send(params);
+        xhr.send(send);
     },
     'AMAZON.HelpIntent': function () {
         const speechOutput = HELP_MESSAGE;
