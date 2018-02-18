@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Test page for Amazon Alexa input</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="typed.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="content.js"></script>  
+  <script src="typed.js"></script>
 </head>
 <body>
-<p id="first">
-Hello World!
+  <h4 id="title"><font color="#00ff00">>> </font>Sample code snippets from Alexa</h4>
+  <p id="0"></p>
 
-</p>
+  <canvas id="myCanvas"></canvas>
+  <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-firestore.js"></script>
+  <script>
+    animate();
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyA5zecEUcUV8lq2K85errmodjB-HpoOyag",
+      authDomain: "treehacks2018-82ece.firebaseapp.com",
+      databaseURL: "https://treehacks2018-82ece.firebaseio.com",
+      projectId: "treehacks2018-82ece",
+      storageBucket: "treehacks2018-82ece.appspot.com",
+      messagingSenderId: "1065494885295"
+    };
+    firebase.initializeApp(config);
+    var db = firebase.firestore();
+    db.collection("codeOutput").onSnapshot(function(querySnapshot){
+    	querySnapshot.docChanges.forEach(function(change) {
+    		if(change.type === "modified") {
+    			var newCode = change.doc.data().code;
+    			document.getElementById("0").innerHTML+=newCode + "\n";
+          console.log("added");
+    		}
+    	});
+    });
 
-Untitled-1<script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-firestore.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyA5zecEUcUV8lq2K85errmodjB-HpoOyag",
-    authDomain: "treehacks2018-82ece.firebaseapp.com",
-    databaseURL: "https://treehacks2018-82ece.firebaseio.com",
-    projectId: "treehacks2018-82ece",
-    storageBucket: "treehacks2018-82ece.appspot.com",
-    messagingSenderId: "1065494885295"
-  };
-  firebase.initializeApp(config);
-  var db = firebase.firestore();
-
-  db.collection("codeOutput").onSnapshot(function(querySnapshot){
-  	querySnapshot.docChanges.forEach(function(change) {
-  		if(change.type === "modified") {
-  			var newCode = change.doc.data().code;
-  			// TODO: change this to add space between two code commands
-  			document.getElementById("first").innerHTML+=newCode;
-  		}
-
-  	});
-  });
-</script>
+    // fade in
+    fadeIn(title, 0.15);
+    
+  </script>
 
 </body>
 </html>
